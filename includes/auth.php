@@ -4,21 +4,21 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 /*
- ONLY protect pages that require login
+ PROTECT ADMIN / PRIVATE PAGES
 */
 function requireLogin() {
     if (!isset($_SESSION['user_id'])) {
-        header("Location: /auth/login.php");
+        header("Location: ../login.php");
         exit();
     }
 }
 
 /*
- Prevent logged-in users from seeing login/signup again
+ BLOCK LOGIN/SIGNUP IF ALREADY LOGGED IN
 */
 function redirectIfLoggedIn() {
     if (isset($_SESSION['user_id'])) {
-        header("Location: /index.php");
+        header("Location: ../admin/index.php");
         exit();
     }
 }

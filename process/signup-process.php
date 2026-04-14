@@ -1,37 +1,45 @@
 <?php
-include 'includes/db.php';
+session_start();
+
+include __DIR__ . '/../includes/db.php';
 
 $name = trim($_POST['name']);
 $email = trim($_POST['email']);
 $password = $_POST['password'];
 
+// VALIDATION
 if ($name == "" || $email == "" || $password == "") {
-    header("Location: signup.php?error=empty");
+    header("Location: ../auth/signup.php?error=empty");
     exit();
 }
 
-// CHECK EMAIL
+// CHECK EMAIL EXISTS
 $check = $conn->prepare("SELECT id FROM users WHERE email=?");
 $check->bind_param("s", $email);
 $check->execute();
 $check->store_result();
 
 if ($check->num_rows > 0) {
-    header("Location: signup.php?error=exists");
+    header("Location: ../auth/signup.php?error=exists");
     exit();
 }
 
 // HASH PASSWORD
-$hash = password_hash($password, PASSWORD_BCRYPT);
+$hashed = password_hash($password, PASSWORD_BCRYPT);
 
-// INSERT
+// INSERT USER
 $stmt = $conn->prepare("INSERT INTO users (name,email,password) VALUES (?,?,?)");
-$stmt->bind_param("sss", $name, $email, $hash);
+$stmt->bind_param("sss", $name, $email, $hashed);
 
 if ($stmt->execute()) {
-    header("Location: login.php?success=1");
+
+    header("Location: ../login.php?success=1");
+
+    exit();
+
 } else {
-    header("Location: signup.php?error=db");
+
+    header("Location: ../auth/signup.php?error=db");
+    exit();
 }
-exit();
 ?>
