@@ -41,7 +41,7 @@ body {
             <a href="./about-us.php" class="hover:opacity-70 transition">About Us</a>
             <a href="./contact.php" class="hover:opacity-70 transition">Contact</a>
 
-            <a href="#" class="border border-white px-4 py-1 rounded-full hover:bg-white hover:text-black transition">
+            <a href="./login.php" class="border border-white px-4 py-1 rounded-full hover:bg-white hover:text-black transition">
                 Log in
             </a>
         </div>
