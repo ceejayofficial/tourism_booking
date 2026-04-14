@@ -4,7 +4,7 @@
     <div class="relative w-full h-full">
 
         <!-- SLIDE 1 -->
-        <img src="assets/images/2.jpg"
+        <img src="assets/images/1.jpg"
              class="slide absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-1000">
 
         <!-- SLIDE 2 -->

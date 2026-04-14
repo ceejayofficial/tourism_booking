@@ -24,22 +24,22 @@ body {
 
         <!-- LEFT MENU (DESKTOP ONLY) -->
         <nav class="hidden lg:flex gap-6 text-xs uppercase tracking-widest font-light whitespace-nowrap">
-            <a href="#" class="hover:opacity-70 transition">Explore Packages</a>
-            <a href="#" class="hover:opacity-70 transition">Featured Destinations</a>
-            <a href="#" class="hover:opacity-70 transition">Island Escapes</a>
+            <a href="./index.php" class="hover:opacity-70 transition">Explore Packages</a>
+            <a href="./trips.php" class="hover:opacity-70 transition">Featured Destinations</a>
+            <a href="#" class="hover:opacity-70 transition"> Escapes</a>
         </nav>
 
         <!-- LOGO -->
         <div class="text-xl tracking-[0.35em] font-light uppercase">
-            Luxe Trips
+            Curaters
         </div>
 
         <!-- RIGHT MENU (DESKTOP ONLY) -->
         <div class="hidden lg:flex items-center gap-6 text-xs uppercase tracking-widest font-light whitespace-nowrap">
 
-            <a href="#" class="hover:opacity-70 transition">Book a Trip</a>
-            <a href="#" class="hover:opacity-70 transition">About Us</a>
-            <a href="#" class="hover:opacity-70 transition">Contact</a>
+            <a href="trips.php" class="hover:opacity-70 transition">Book a Trip</a>
+            <a href="./about-us.php" class="hover:opacity-70 transition">About Us</a>
+            <a href="./contact.php" class="hover:opacity-70 transition">Contact</a>
 
             <a href="#" class="border border-white px-4 py-1 rounded-full hover:bg-white hover:text-black transition">
                 Log in
