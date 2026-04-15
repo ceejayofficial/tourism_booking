@@ -26,32 +26,7 @@ body { font-family: 'Inter', sans-serif; }
 
 <div class="flex min-h-screen">
 
-    <!-- SIDEBAR -->
-    <aside class="w-64 bg-white border-r hidden md:flex flex-col justify-between">
-
-        <div>
-            <div class="p-6 border-b">
-                <h1 class="text-lg tracking-widest uppercase font-light">
-                    Curaters Admin
-                </h1>
-            </div>
-
-            <nav class="p-6 space-y-4 text-sm">
-
-                <a href="index.php" class="block text-gray-600 hover:text-black">Dashboard</a>
-                <a href="trips.php" class="block text-black font-medium">Manage Trips</a>
-                <a href="bookings.php" class="block text-gray-600 hover:text-black">Bookings</a>
-
-            </nav>
-        </div>
-
-        <div class="p-6 border-t">
-            <a href="/auth/logout.php" class="text-sm text-gray-500 hover:text-black">
-                Logout
-            </a>
-        </div>
-
-    </aside>
+  <?php include 'components/sidebar.php'; ?>
 
     <!-- MAIN -->
     <main class="flex-1">

@@ -24,34 +24,7 @@ body {
 <!-- LAYOUT -->
 <div class="flex min-h-screen">
 
-    <!-- SIDEBAR -->
-    <aside class="w-64 bg-white border-r hidden md:flex flex-col justify-between">
-
-        <div>
-            <div class="p-6 border-b">
-                <h1 class="text-lg tracking-widest uppercase font-light">
-                    Curaters Admin
-                </h1>
-            </div>
-
-            <nav class="p-6 space-y-4 text-sm">
-
-                <a href="#" class="block text-black font-medium">Dashboard</a>
-                <a href="trips.php" class="block text-gray-600 hover:text-black">Manage Trips</a>
-                <a href="bookings.php" class="block text-gray-600 hover:text-black">Bookings</a>
-                <a href="media.php" class="block text-gray-600 hover:text-black">Media</a>
-                <a href="content.php" class="block text-gray-600 hover:text-black">Website Content</a>
-
-            </nav>
-        </div>
-
-        <div class="p-6 border-t">
-            <a href="/auth/logout.php" class="text-sm text-gray-500 hover:text-black">
-                Logout
-            </a>
-        </div>
-
-    </aside>
+<?php include 'components/sidebar.php'; ?>
 
     <!-- MAIN -->
     <main class="flex-1">
