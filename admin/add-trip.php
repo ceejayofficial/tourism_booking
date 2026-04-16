@@ -24,55 +24,63 @@ body { font-family: 'Inter', sans-serif; }
 <?php include 'components/sidebar.php'; ?>
 
     <!-- MAIN -->
-    <main class="flex-1">
+    <main class="flex-1 w-full">
 
         <!-- TOP -->
         <div class="px-6 py-5 border-b">
             <h2 class="text-xl font-light text-black">Add New Trip</h2>
         </div>
 
-        <!-- FORM -->
-        <div class="p-6 max-w-3xl">
+        <!-- FORM CONTAINER (FULL WIDTH FIXED) -->
+        <div class="p-6 w-full">
 
-            <form action="../process/add-trip.php" method="POST" enctype="multipart/form-data" class="space-y-6">
+            <form action="../process/add-trip.php"
+                  method="POST"
+                  enctype="multipart/form-data"
+                  class="w-full space-y-6">
 
-                <!-- TITLE -->
-                <div>
-                    <label class="text-sm text-gray-600">Trip Title</label>
-                    <input type="text" name="title" required
-                        class="w-full mt-2 border px-4 py-3 rounded-lg focus:outline-none focus:border-black">
-                </div>
+                <!-- GRID LAYOUT FOR BETTER FULL WIDTH UX -->
+                <div class="grid lg:grid-cols-2 gap-6">
 
-                <!-- DESCRIPTION -->
-                <div>
-                    <label class="text-sm text-gray-600">Description</label>
-                    <textarea name="description" rows="4" required
-                        class="w-full mt-2 border px-4 py-3 rounded-lg focus:outline-none focus:border-black"></textarea>
-                </div>
+                    <!-- TITLE -->
+                    <div>
+                        <label class="text-sm text-gray-600">Trip Title</label>
+                        <input type="text" name="title" required
+                            class="w-full mt-2 border px-4 py-3 rounded-lg focus:outline-none focus:border-black">
+                    </div>
 
-                <!-- DESTINATION -->
-                <div>
-                    <label class="text-sm text-gray-600">Destination</label>
-                    <input type="text" name="destination" required
-                        class="w-full mt-2 border px-4 py-3 rounded-lg">
-                </div>
+                    <!-- DESTINATION -->
+                    <div>
+                        <label class="text-sm text-gray-600">Destination</label>
+                        <input type="text" name="destination" required
+                            class="w-full mt-2 border px-4 py-3 rounded-lg">
+                    </div>
 
-                <!-- PRICE -->
-                <div>
-                    <label class="text-sm text-gray-600">Price (per person)</label>
-                    <input type="number" name="price" required
-                        class="w-full mt-2 border px-4 py-3 rounded-lg">
-                </div>
+                    <!-- PRICE -->
+                    <div>
+                        <label class="text-sm text-gray-600">Price (per person)</label>
+                        <input type="number" name="price" required
+                            class="w-full mt-2 border px-4 py-3 rounded-lg">
+                    </div>
 
-                <!-- PARTICIPANTS -->
-                <div class="grid md:grid-cols-2 gap-4">
+                    <!-- STATUS -->
+                    <div>
+                        <label class="text-sm text-gray-600">Status</label>
+                        <select name="status"
+                            class="w-full mt-2 border px-4 py-3 rounded-lg">
+                            <option value="Active">Active</option>
+                            <option value="Closed">Closed</option>
+                        </select>
+                    </div>
 
+                    <!-- MAX PARTICIPANTS -->
                     <div>
                         <label class="text-sm text-gray-600">Max Participants (optional)</label>
                         <input type="number" name="max_people"
                             class="w-full mt-2 border px-4 py-3 rounded-lg">
                     </div>
 
+                    <!-- MIN PARTICIPANTS -->
                     <div>
                         <label class="text-sm text-gray-600">Min Required (optional)</label>
                         <input type="number" name="min_people"
@@ -81,14 +89,11 @@ body { font-family: 'Inter', sans-serif; }
 
                 </div>
 
-                <!-- STATUS -->
+                <!-- DESCRIPTION (FULL WIDTH) -->
                 <div>
-                    <label class="text-sm text-gray-600">Status</label>
-                    <select name="status"
-                        class="w-full mt-2 border px-4 py-3 rounded-lg">
-                        <option value="Active">Active</option>
-                        <option value="Closed">Closed</option>
-                    </select>
+                    <label class="text-sm text-gray-600">Description</label>
+                    <textarea name="description" rows="5" required
+                        class="w-full mt-2 border px-4 py-3 rounded-lg focus:outline-none focus:border-black"></textarea>
                 </div>
 
                 <!-- IMAGE UPLOAD -->
