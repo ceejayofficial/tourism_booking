@@ -5,6 +5,7 @@
 <?php include 'components/destinations.php'; ?>
 <?php include 'components/about.php'; ?>
 <?php include 'components/vision.php'; ?>
+<?php include 'components/who-are-we.php'; ?>
 <?php include 'components/footer.php'; ?>
 
 <script src="assets/js/slider.js"></script>

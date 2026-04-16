@@ -21,21 +21,23 @@
             <!-- VISION -->
             <div class="border rounded-3xl p-10 hover:shadow-sm transition">
 
-                <!-- SVG ICON -->
-                <div class="mb-5 text-black">
-                    <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M9 20l-5.447-2.724A1 1 0 013 16.382V5a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l6-3m0 0V5a1 1 0 00-1.447-.894L15 7m0 10V7m0 0L9 7"/>
-                    </svg>
-                </div>
+                <!-- PROFESSIONAL ICON -->
+            <!-- VISION -->
+<div class="mb-5 text-black">
+    <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+        <path stroke-linecap="round" stroke-linejoin="round"
+        d="M12 15a3 3 0 100-6 3 3 0 000 6z"/>
+    </svg>
+</div>
 
                 <h3 class="text-xl font-light text-black mb-4">
                     Our Vision
                 </h3>
 
                 <p class="text-gray-600 leading-relaxed text-[15px]">
-                    To become a leading global travel brand that transforms the way people experience the world 
-                    through curated, meaningful, and unforgettable journeys that connect cultures and destinations.
+                    Our vision is to turn travel into art carefully curated, deeply felt, and impossible to forget. We aim to redefine African and global travel through meaningful journeys that inspire connection, discovery, and lasting emotional impact.
                 </p>
 
             </div>
@@ -43,23 +45,22 @@
             <!-- MISSION -->
             <div class="border rounded-3xl p-10 hover:shadow-sm transition">
 
-                <!-- SVG ICON -->
-                <div class="mb-5 text-black">
-                    <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M5 13l4 4L19 7"/>
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M12 3v18"/>
-                    </svg>
-                </div>
+           <!-- MISSION -->
+<div class="mb-5 text-black">
+    <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+        d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z"/>
+        <path stroke-linecap="round" stroke-linejoin="round"
+        d="M12 12l6-2-2 6-4-4z"/>
+    </svg>
+</div>
 
                 <h3 class="text-xl font-light text-black mb-4">
                     Our Mission
                 </h3>
 
                 <p class="text-gray-600 leading-relaxed text-[15px]">
-                    To design and deliver premium travel experiences that are seamless, affordable, and personalized, 
-                    ensuring every traveler enjoys comfort, adventure, and unforgettable memories.
+                    At Curaters, we’re on a mission to curate authentic, purposeful journeys that blend culture, adventure, and connection revealing the true spirit of every destination while creating lasting memories and stories worth telling.
                 </p>
 
             </div>
@@ -70,7 +71,7 @@
         <div class="text-center mt-16">
 
             <p class="text-gray-500 italic text-sm max-w-2xl mx-auto">
-                “Travel is not just about destinations — it’s about experiences that shape who we become.”
+                “We don’t just plan trips — we craft meaningful experiences that become lifelong memories.”
             </p>
 
         </div>

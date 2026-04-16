@@ -1,14 +1,14 @@
-<section class="bg-white py-16 md:py-20 px-5 sm:px-6">
+<section class="bg-white py-16 md:py-20 px-5 sm:px-6" id="WhyCuraters">
 
     <!-- HEADER -->
     <div class="text-center mb-12 md:mb-16 max-w-xl mx-auto">
         <p class="text-xs uppercase tracking-widest text-gray-400 mb-3">
-            Why Choose Us
+            Why Curaters
         </p>
 
         <h2 class="text-2xl sm:text-3xl md:text-4xl font-light text-gray-800 leading-snug">
-            Book your dream trip with ease<br class="hidden sm:block">
-            Secure your slot instantly and travel stress-free
+            Travel, Curated Differently<br class="hidden sm:block">
+            Experience Africa with purpose, depth, and elegance
         </h2>
     </div>
 
@@ -27,9 +27,9 @@
                     </svg>
                 </div>
 
-                <h3 class="font-medium text-gray-800 text-base">Instant Booking</h3>
+                <h3 class="font-medium text-gray-800 text-base">Seamless Booking</h3>
                 <p class="text-sm text-gray-500 mt-2 leading-relaxed">
-                    Secure your travel slot immediately after selecting your preferred trip.
+                    Secure your place effortlessly and begin your journey with confidence.
                 </p>
             </div>
 
@@ -42,9 +42,9 @@
                     </svg>
                 </div>
 
-                <h3 class="font-medium text-gray-800 text-base">Travel Community</h3>
+                <h3 class="font-medium text-gray-800 text-base">Shared Experiences</h3>
                 <p class="text-sm text-gray-500 mt-2 leading-relaxed">
-                    Join like-minded travelers on curated group experiences around the world.
+                    Connect with like-minded travelers and create meaningful memories together.
                 </p>
             </div>
 
@@ -53,7 +53,7 @@
         <!-- CENTER IMAGE -->
         <div class="flex justify-center">
             <div class="w-44 h-44 sm:w-48 sm:h-48 md:w-52 md:h-52 rounded-full border-2 border-dashed border-gray-300 p-2">
-                <img src="assets/images/center.jpg"
+                <img src="assets/images/8.jpg"
                      class="w-full h-full object-cover rounded-full">
             </div>
         </div>
@@ -70,9 +70,9 @@
                     </svg>
                 </div>
 
-                <h3 class="font-medium text-gray-800 text-base">Curated Experiences</h3>
+                <h3 class="font-medium text-gray-800 text-base">Curated Journeys</h3>
                 <p class="text-sm text-gray-500 mt-2 leading-relaxed">
-                    Thoughtfully designed trips tailored for unforgettable travel moments.
+                    Every trip is intentionally designed to reflect culture, authenticity, and depth.
                 </p>
             </div>
 
@@ -85,9 +85,9 @@
                     </svg>
                 </div>
 
-                <h3 class="font-medium text-gray-800 text-base">Giving Back</h3>
+                <h3 class="font-medium text-gray-800 text-base">Meaningful Impact</h3>
                 <p class="text-sm text-gray-500 mt-2 leading-relaxed">
-                    Every trip contributes to local communities and sustainable travel initiatives.
+                    Your journey supports local communities and preserves authentic stories.
                 </p>
             </div>
 

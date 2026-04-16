@@ -29,8 +29,9 @@ body {
         <!-- LEFT MENU -->
         <nav class="hidden lg:flex gap-6 text-xs uppercase tracking-widest font-light">
             <a href="./index.php" class="hover:opacity-70">Home</a>
-            <a href="./trips.php" class="hover:opacity-70">Gallery</a>
-            <a href="#" class="hover:opacity-70">Escapes</a>
+            <a href="#WhyCuraters" class="hover:opacity-70">Why Us</a>
+            <a href="#OurJourney" class="hover:opacity-70">Our Journeys</a>
+            <a href="#who-we-are" class="hover:opacity-70">Who we are</a>
         </nav>
 
         <!-- LOGO -->
@@ -42,13 +43,13 @@ body {
 <a href="index.php" class="flex items-center">
     <img src="assets/images/logo.png"
          alt="Curaters Logo"
-         class="h-10 sm:h-12 w-24 md:h-14 w-auto object-contain scale-125 md:scale-150 origin-center">
+         class="h-16 sm:h-18 md:h-20 w-auto object-contain scale-150 md:scale-175 origin-center">
 </a>
         <!-- RIGHT MENU -->
         <div class="hidden lg:flex items-center gap-6 text-xs uppercase tracking-widest font-light">
 
-            <a href="trips.php" class="hover:opacity-70">Book a Trip</a>
-            <a href="./about-us.php" class="hover:opacity-70">About Us</a>
+            <a href="trips.php" class="hover:opacity-70">Book Now</a>
+            <a href="#about" class="hover:opacity-70">About Us</a>
             <a href="./contact.php" class="hover:opacity-70">Contact</a>
 
             <a href="./login.php" class="border border-white px-4 py-1 rounded-full hover:bg-white hover:text-black transition">
@@ -80,15 +81,17 @@ body {
         <!-- LINKS -->
         <div class="flex flex-col gap-6 px-8 py-10 text-sm uppercase tracking-widest">
 
-            <a href="./index.php">Explore Packages</a>
-            <a href="./trips.php">Featured Destinations</a>
-            <a href="#">Island Escapes</a>
+              <a href="./index.php" class="hover:opacity-70">Home</a>
+            <a href="#WhyCuraters" class="hover:opacity-70">Why Us</a>
+            <a href="#OurJourney" class="hover:opacity-70">Our Journeys</a>
+            <a href="#who-we-are" class="hover:opacity-70">Who we are</a>
+            
 
             <div class="border-t border-white/10 pt-6 mt-6"></div>
 
-            <a href="trips.php">Book a Trip</a>
-            <a href="./about-us.php">About Us</a>
-            <a href="./contact.php">Contact</a>
+             <a href="trips.php" class="hover:opacity-70">Book Now</a>
+            <a href="#about" class="hover:opacity-70">About Us</a>
+            <a href="./contact.php" class="hover:opacity-70">Contact</a>
 
             <a href="./login.php"
                class="border border-white px-4 py-2 rounded-full w-fit mt-4">

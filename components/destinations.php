@@ -1,4 +1,4 @@
-<section class="bg-[#f9fafb] py-20 px-6">
+<section class="bg-[#f9fafb] py-20 px-6" id="OurJourney">
 
     <div class="max-w-6xl mx-auto">
 
@@ -7,117 +7,110 @@
 
             <div>
                 <p class="text-xs uppercase tracking-widest text-red-400 mb-2">
-                    Suggested Private Destinations
+                    Curated Journeys
                 </p>
 
                 <h2 class="text-3xl md:text-4xl font-light text-gray-800 leading-snug">
-                    Bucket list vacations designed for your budget!
+                    Discover handpicked destinations designed for meaningful travel
                 </h2>
 
                 <p class="text-sm text-gray-500 mt-3 max-w-md">
-                    Browse our travel packages or request a customized trip designed to match your travel style.
+                    Explore thoughtfully curated experiences or request a bespoke journey tailored to your travel style and vision.
                 </p>
             </div>
 
-            <!-- TAG BUTTONS -->
             <div class="flex flex-wrap gap-3">
 
                 <span class="border border-red-300 text-red-400 px-4 py-1 rounded-full text-xs uppercase">
-                    Over 100 Destinations
+                    100+ Curated Destinations
                 </span>
 
                 <span class="border border-red-300 text-red-400 px-4 py-1 rounded-full text-xs uppercase">
-                    For Every Budget
+                    Tailored to Every Budget
                 </span>
 
                 <span class="border border-red-300 text-red-400 px-4 py-1 rounded-full text-xs uppercase">
-                    Flexible Payments
+                    Flexible Travel Planning
                 </span>
 
                 <span class="border border-red-300 text-red-400 px-4 py-1 rounded-full text-xs uppercase">
-                    Curated Travel Plans
+                    Bespoke Experiences
                 </span>
 
             </div>
 
         </div>
 
-        <!-- DESTINATION CARDS -->
+        <!-- DESTINATION CARDS (NOT CLICKABLE) -->
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
             <!-- CARD 1 -->
-            <a href="trip-details.php?id=1"
-               class="group relative block h-[420px] rounded-3xl overflow-hidden">
+            <div class="group relative block h-[420px] rounded-3xl overflow-hidden">
 
-                <img src="assets/images/1.jpg"
+                <img src="assets/images/9.jpg"
                      class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
 
-                <!-- OVERLAY -->
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
 
-                <!-- TAGS -->
                 <div class="absolute top-4 left-4 flex gap-2 text-[10px]">
-                    <span class="bg-white/80 px-2 py-1 rounded">Adventure</span>
-                    <span class="bg-white/80 px-2 py-1 rounded">Luxury</span>
+                    <span class="bg-white/80 px-2 py-1 rounded">National Monument Heritage</span>
+                    <span class="bg-white/80 px-2 py-1 rounded">Architectural Legacy</span>
                 </div>
 
-                <!-- TEXT -->
                 <div class="absolute bottom-6 left-6 text-white">
-                    <p class="text-xs opacity-80">Jan - Nov</p>
-                    <h3 class="text-xl font-medium">Arenal, Costa Rica</h3>
+                    <p class="text-xs opacity-80">Symbol of Independence & Identity</p>
+                    <h3 class="text-xl font-medium">Heritage Landmark, Ghana</h3>
                 </div>
 
-            </a>
+            </div>
 
             <!-- CARD 2 -->
-            <a href="trip-details.php?id=2"
-               class="group relative block h-[420px] rounded-3xl overflow-hidden">
+            <div class="group relative block h-[420px] rounded-3xl overflow-hidden">
 
-                <img src="assets/images/2.jpg"
+                <img src="assets/images/11.jpg"
                      class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
 
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
 
                 <div class="absolute top-4 left-4 flex gap-2 text-[10px]">
-                    <span class="bg-white/80 px-2 py-1 rounded">City</span>
-                    <span class="bg-white/80 px-2 py-1 rounded">Culture</span>
+                    <span class="bg-white/80 px-2 py-1 rounded">Cultural Heritage Walk</span>
+                    <span class="bg-white/80 px-2 py-1 rounded">Historic Memory Path</span>
                 </div>
 
                 <div class="absolute bottom-6 left-6 text-white">
-                    <p class="text-xs opacity-80">All Year</p>
-                    <h3 class="text-xl font-medium">Spain</h3>
+                    <p class="text-xs opacity-80">Spaces preserving community stories</p>
+                    <h3 class="text-xl font-medium">Heritage Garden Walk</h3>
                 </div>
 
-            </a>
+            </div>
 
             <!-- CARD 3 -->
-            <a href="trip-details.php?id=3"
-               class="group relative block h-[420px] rounded-3xl overflow-hidden">
+            <div class="group relative block h-[420px] rounded-3xl overflow-hidden">
 
-                <img src="assets/images/3.avif"
+                <img src="assets/images/10.jpg"
                      class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
 
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
 
                 <div class="absolute top-4 left-4 flex gap-2 text-[10px]">
-                    <span class="bg-white/80 px-2 py-1 rounded">Adventure</span>
-                    <span class="bg-white/80 px-2 py-1 rounded">Island</span>
+                    <span class="bg-white/80 px-2 py-1 rounded">Legacy of Leadership</span>
+                    <span class="bg-white/80 px-2 py-1 rounded">Commemorative Sculpture</span>
                 </div>
 
                 <div class="absolute bottom-6 left-6 text-white">
-                    <p class="text-xs opacity-80">Seasonal</p>
-                    <h3 class="text-xl font-medium">Jamaica Getaway</h3>
+                    <p class="text-xs opacity-80">Honoring African historical figures</p>
+                    <h3 class="text-xl font-medium">Historical Bust Memorial</h3>
                 </div>
 
-            </a>
+            </div>
 
         </div>
 
-        <!-- BUTTON -->
+        <!-- ONLY NAVIGATION BUTTON -->
         <div class="flex justify-center mt-12">
             <a href="trips.php"
                class="bg-black text-white px-6 py-3 rounded-full text-xs uppercase tracking-widest hover:bg-gray-800 transition">
-                Discover All Destinations
+                Explore All Journeys
             </a>
         </div>
 

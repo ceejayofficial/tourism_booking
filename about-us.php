@@ -29,6 +29,7 @@
 
 <!-- VISION & MISSION -->
 <?php include 'components/vision.php'; ?>
+<?php include 'components/who-are-we.php'; ?>
 
 <!-- STATS -->
 <section class="bg-white py-24 px-6">
