@@ -28,16 +28,22 @@ body {
 
         <!-- LEFT MENU -->
         <nav class="hidden lg:flex gap-6 text-xs uppercase tracking-widest font-light">
-            <a href="./index.php" class="hover:opacity-70">Explore Packages</a>
-            <a href="./trips.php" class="hover:opacity-70">Featured Destinations</a>
+            <a href="./index.php" class="hover:opacity-70">Home</a>
+            <a href="./trips.php" class="hover:opacity-70">Gallery</a>
             <a href="#" class="hover:opacity-70">Escapes</a>
         </nav>
 
         <!-- LOGO -->
-        <div class="text-lg sm:text-xl tracking-[0.3em] font-light uppercase">
+        <!-- <div class="text-lg sm:text-xl tracking-[0.3em] font-light uppercase">
             Curaters
-        </div>
-
+        </div> -->
+        <!-- LOGO -->
+<!-- LOGO -->
+<a href="index.php" class="flex items-center">
+    <img src="assets/images/logo.png"
+         alt="Curaters Logo"
+         class="h-10 sm:h-12 w-24 md:h-14 w-auto object-contain scale-125 md:scale-150 origin-center">
+</a>
         <!-- RIGHT MENU -->
         <div class="hidden lg:flex items-center gap-6 text-xs uppercase tracking-widest font-light">
 
