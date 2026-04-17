@@ -13,7 +13,7 @@
                 </h2>
 
                 <p class="text-gray-400 text-sm mt-4">
-                    Curated travel experiences designed for unforgettable journeys across the world.
+Our vision is to turn travel into art, carefully curated, deeply felt, and impossible to forget.
                 </p>
 
                 <p class="text-gray-400 text-sm mt-4">
@@ -44,9 +44,8 @@
             <div>
                 <h3 class="text-sm text-pink-300 mb-4">Group trips</h3>
                 <ul class="space-y-2 text-sm text-gray-400">
-                    <li><a href="#" class="hover:text-white">Destinations</a></li>
-                    <li><a href="#" class="hover:text-white">How it works</a></li>
-                    <li><a href="#" class="hover:text-white">Group trips FAQ</a></li>
+                    <li><a href="./trips.php" class="hover:text-white">Destinations</a></li>
+                    <li><a href="./trips.php" class="hover:text-white">How it works</a></li>
                 </ul>
             </div>
 
@@ -54,8 +53,8 @@
             <div>
                 <h3 class="text-sm text-pink-300 mb-4">Private trips</h3>
                 <ul class="space-y-2 text-sm text-gray-400">
-                    <li><a href="#" class="hover:text-white">Plan my trip</a></li>
-                    <li><a href="#" class="hover:text-white">Private trips FAQ</a></li>
+                    <li><a href="./contact.php" class="hover:text-white">Plan trip</a></li>
+                    <li><a href="./contact.php" class="hover:text-white">Private trips</a></li>
                 </ul>
             </div>
 
@@ -63,10 +62,10 @@
             <div>
                 <h3 class="text-sm text-pink-300 mb-4">About us</h3>
                 <ul class="space-y-2 text-sm text-gray-400">
-                    <li><a href="#" class="hover:text-white">Why Curaters</a></li>
-                    <li><a href="#" class="hover:text-white">Careers</a></li>
-                    <li><a href="#" class="hover:text-white">Giving back</a></li>
-                    <li><a href="#" class="hover:text-white">General FAQ</a></li>
+                    <li><a href="./about-us.php" class="hover:text-white">Why Curaters</a></li>
+                    <li><a href="./about-us.php" class="hover:text-white">Careers</a></li>
+                    <!-- <li><a href="#" class="hover:text-white">Giving back</a></li>
+                    <li><a href="#" class="hover:text-white">General FAQ</a></li> -->
                 </ul>
             </div>
 
@@ -74,9 +73,9 @@
             <div>
                 <h3 class="text-sm text-pink-300 mb-4">Contacts us</h3>
                 <ul class="space-y-2 text-sm text-gray-400">
-                    <li><a href="#" class="hover:text-white">Careers and Travel Hosting</a></li>
-                    <li><a href="#" class="hover:text-white">Advertising & Marketing</a></li>
-                    <li><a href="#" class="hover:text-white">Travel Information</a></li>
+                    <li><a href="./trips.php" class="hover:text-white">Travel</a></li>
+                    <!-- <li><a href="#" class="hover:text-white">Advertising & Marketing</a></li>
+                    <li><a href="#" class="hover:text-white">Travel Information</a></li> -->
                 </ul>
             </div>
 

@@ -1,4 +1,4 @@
-<?php include 'components/header.php'; ?>
+<?php include 'components/cdn.php'; ?>
 
 <?php
 // SAMPLE DATA (replace with DB later)

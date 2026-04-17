@@ -1,7 +1,6 @@
-<?php include 'components/header.php'; ?>
+<?php include 'components/cdn.php'; ?>
 
-<!-- HEADER SPACER -->
-<div class="h-24"></div>
+
 
 <!-- HERO -->
 <section class="bg-white py-20 px-6">

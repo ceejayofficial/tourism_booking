@@ -1,28 +1,9 @@
-<?php include 'components/header.php'; ?>
+<?php include 'components/cdn.php'; ?>
 
 <!-- SPACER FOR FIXED HEADER -->
-<div class="h-24"></div>
+<div class=""></div>
 
-<!-- HERO -->
-<section class="bg-white py-20 px-6">
 
-    <div class="max-w-6xl mx-auto text-center">
-
-        <p class="text-xs uppercase tracking-widest text-gray-500 mb-3">
-            About Curaters
-        </p>
-
-        <h1 class="text-4xl md:text-5xl font-light text-black">
-            Crafting unforgettable travel experiences
-        </h1>
-
-        <p class="text-gray-600 mt-6 max-w-2xl mx-auto leading-relaxed">
-            We are a premium travel brand dedicated to designing curated journeys that connect people with extraordinary destinations around the world.
-        </p>
-
-    </div>
-
-</section>
 
 <!-- ABOUT COMPONENT -->
 <?php include 'components/about.php'; ?>
