@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 
@@ -12,9 +11,12 @@ if (isset($_SESSION['user_id'])) {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Login | Curaters</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
@@ -25,50 +27,64 @@ body {
 
 </head>
 
-<body class="bg-white">
+<body class="bg-gray-50">
 
-<!-- CENTER WRAPPER -->
-<section class="min-h-screen flex items-center justify-center px-6">
+<!-- FULL SCREEN CENTER WRAPPER -->
+<div class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
 
-    <div class="w-full max-w-md">
+    <!-- CARD -->
+    <div class="w-full max-w-sm sm:max-w-md bg-white rounded-2xl shadow-sm border p-6 sm:p-10">
 
-        <!-- TITLE -->
-        <div class="text-center mb-10">
+        <!-- HEADER -->
+        <div class="text-center mb-8 sm:mb-10">
 
-            <h1 class="text-3xl font-light text-black">
+            <h1 class="text-2xl sm:text-3xl font-light text-black">
                 Welcome Back
             </h1>
 
-            <p class="text-gray-600 mt-2 text-sm">
+            <p class="text-gray-500 mt-2 text-sm">
                 Login to continue your journey with Curaters
             </p>
 
         </div>
 
         <!-- FORM -->
-        <form action="process/login-process.php" method="POST" class="space-y-5">
+        <form action="process/login-process.php" method="POST" class="space-y-4 sm:space-y-5">
 
-            <input type="email" name="email" placeholder="Email Address" required
-                class="w-full border rounded-lg px-4 py-3 outline-none focus:border-black">
+            <!-- EMAIL -->
+            <div>
+                <input type="email" name="email" placeholder="Email Address" required
+                    class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm sm:text-base
+                           focus:outline-none focus:border-black transition">
+            </div>
 
-            <input type="password" name="password" placeholder="Password" required
-                class="w-full border rounded-lg px-4 py-3 outline-none focus:border-black">
+            <!-- PASSWORD -->
+            <div>
+                <input type="password" name="password" placeholder="Password" required
+                    class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm sm:text-base
+                           focus:outline-none focus:border-black transition">
+            </div>
 
+            <!-- BUTTON -->
             <button type="submit"
-                class="w-full bg-black text-white py-3 rounded-full uppercase text-sm tracking-widest hover:opacity-90 transition">
+                class="w-full bg-black text-white py-3 rounded-full text-sm uppercase tracking-widest
+                       hover:opacity-90 active:scale-[0.99] transition">
                 Login
             </button>
 
         </form>
 
-        <p class="text-center text-sm text-gray-600 mt-6">
+        <!-- FOOTER -->
+        <p class="text-center text-sm text-gray-500 mt-6">
             Don't have an account?
-            <a href="signup.php" class="text-black underline">Sign up</a>
+            <a href="signup.php" class="text-black font-medium hover:underline">
+                Sign up
+            </a>
         </p>
 
     </div>
 
-</section>
+</div>
 
 </body>
 </html>

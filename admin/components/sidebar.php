@@ -11,15 +11,14 @@ $current = basename($_SERVER['PHP_SELF']);
 <title>Admin | Curaters</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
-
 </head>
 
-<body class="bg-white overflow-x-hidden antialiased">
+<body class="bg-gray-50 antialiased overflow-x-hidden">
 
-<!-- ================= MOBILE TOP BAR ================= -->
-<div class="md:hidden fixed top-0 left-0 right-0 flex items-center justify-between px-4 py-3 bg-white border-b z-[90] shadow-sm">
+<!-- ================= TOP BAR ================= -->
+<header class="fixed top-0 left-0 right-0 h-14 bg-white border-b z-50 flex items-center justify-between px-4 md:pl-64">
 
-    <button onclick="toggleSidebar()" class="p-2 rounded-md border bg-white shadow-sm">
+    <button onclick="toggleSidebar()" class="md:hidden p-2 border rounded-md shadow-sm">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M4 6h16M4 12h16M4 18h16"/>
@@ -30,138 +29,126 @@ $current = basename($_SERVER['PHP_SELF']);
         Curaters Admin
     </h1>
 
-    <div class="w-8"></div>
-</div>
+    <div></div>
+</header>
 
 <!-- ================= OVERLAY ================= -->
 <div id="overlay"
      onclick="toggleSidebar()"
-     class="hidden fixed inset-0 bg-black/60 z-[80] md:hidden"></div>
+     class="hidden fixed inset-0 bg-black/50 z-40 md:hidden"></div>
 
-<div class="md:flex min-h-screen">
+<!-- ================= SIDEBAR ================= -->
+<aside id="sidebar"
+       class="fixed top-0 left-0 h-full w-64 bg-white border-r z-50
+              transform -translate-x-full md:translate-x-0
+              transition-transform duration-300 flex flex-col">
 
-    <!-- ================= SIDEBAR ================= -->
-    <aside id="sidebar"
-           class="fixed md:static top-0 left-0 h-full w-64 bg-white border-r z-[85]
-                  -translate-x-full md:translate-x-0
-                  transition-transform duration-300 flex flex-col justify-between">
+    <!-- LOGO -->
+    <div class="h-14 flex items-center px-6 border-b">
+        <h1 class="text-lg uppercase tracking-widest font-light">
+            Curaters
+        </h1>
+    </div>
 
-        <!-- LOGO -->
-        <div class="p-6 border-b">
-            <h1 class="text-lg tracking-widest uppercase font-light">
-                Curaters Admin
-            </h1>
-        </div>
+    <!-- MENU -->
+    <nav class="flex-1 overflow-y-auto p-4 space-y-2 text-sm">
 
-        <!-- MENU -->
-        <nav class="p-4 space-y-2 text-sm overflow-y-auto">
+        <!-- DASHBOARD -->
+        <a href="index.php"
+           class="flex items-center gap-3 px-3 py-2 rounded-lg
+           <?php echo $current == 'index.php' ? 'bg-black text-white' : 'text-gray-600 hover:bg-gray-100'; ?>">
 
-            <!-- DASHBOARD -->
-            <a href="index.php"
-               class="flex items-center gap-3 px-3 py-2 rounded-lg
-               <?php echo $current == 'index.php' ? 'bg-black text-white' : 'text-gray-600 hover:bg-gray-100'; ?>">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 12l9-9 9 9v9a2 2 0 01-2 2h-4a2 2 0 01-2-2v-4H9v4a2 2 0 01-2 2H3z"/>
+            </svg>
 
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M3 12l9-9 9 9v9a2 2 0 01-2 2h-4a2 2 0 01-2-2v-4H9v4a2 2 0 01-2 2H3z"/>
-                </svg>
+            Dashboard
+        </a>
 
-                Dashboard
-            </a>
+        <!-- TRIPS -->
+        <a href="trips.php"
+           class="flex items-center gap-3 px-3 py-2 rounded-lg
+           <?php echo $current == 'trips.php' ? 'bg-black text-white' : 'text-gray-600 hover:bg-gray-100'; ?>">
 
-            <!-- TRIPS -->
-            <a href="trips.php"
-               class="flex items-center gap-3 px-3 py-2 rounded-lg
-               <?php echo $current == 'trips.php' ? 'bg-black text-white' : 'text-gray-600 hover:bg-gray-100'; ?>">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 20l-5-2V6l5 2m0 12l6-2m-6 2V8m6 10l5-2V4l-5 2m0 12V6"/>
+            </svg>
 
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M9 20l-5-2V6l5 2m0 12l6-2m-6 2V8m6 10l5-2V4l-5 2m0 12V6"/>
-                </svg>
+            Trips
+        </a>
 
-                Trips
-            </a>
+        <!-- BOOKINGS -->
+        <a href="bookings.php"
+           class="flex items-center gap-3 px-3 py-2 rounded-lg
+           <?php echo $current == 'bookings.php' ? 'bg-black text-white' : 'text-gray-600 hover:bg-gray-100'; ?>">
 
-            <!-- BOOKINGS -->
-            <a href="bookings.php"
-               class="flex items-center gap-3 px-3 py-2 rounded-lg
-               <?php echo $current == 'bookings.php' ? 'bg-black text-white' : 'text-gray-600 hover:bg-gray-100'; ?>">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M8 7V3m8 4V3M4 11h16M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
 
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M8 7V3m8 4V3M4 11h16M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                </svg>
+            Bookings
+        </a>
 
-                Bookings
-            </a>
+        <!-- MEDIA -->
+        <a href="media.php"
+           class="flex items-center gap-3 px-3 py-2 rounded-lg
+           <?php echo $current == 'media.php' ? 'bg-black text-white' : 'text-gray-600 hover:bg-gray-100'; ?>">
 
-            <!-- MEDIA -->
-            <a href="media.php"
-               class="flex items-center gap-3 px-3 py-2 rounded-lg
-               <?php echo $current == 'media.php' ? 'bg-black text-white' : 'text-gray-600 hover:bg-gray-100'; ?>">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M15 10l4 2V8l-4 2m-6 4l-4 2V8l4 2m6 4V6a2 2 0 00-2-2H9a2 2 0 00-2 2v8"/>
+            </svg>
 
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M15 10l4 2V8l-4 2m-6 4l-4 2V8l4 2m6 4V6a2 2 0 00-2-2H9a2 2 0 00-2 2v8"/>
-                </svg>
+            Media
+        </a>
 
-                Media
-            </a>
+        <!-- CONTENT -->
+        <a href="content.php"
+           class="flex items-center gap-3 px-3 py-2 rounded-lg
+           <?php echo $current == 'content.php' ? 'bg-black text-white' : 'text-gray-600 hover:bg-gray-100'; ?>">
 
-            <!-- CONTENT -->
-            <a href="content.php"
-               class="flex items-center gap-3 px-3 py-2 rounded-lg
-               <?php echo $current == 'content.php' ? 'bg-black text-white' : 'text-gray-600 hover:bg-gray-100'; ?>">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v12a2 2 0 01-2 2z"/>
+            </svg>
 
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v12a2 2 0 01-2 2z"/>
-                </svg>
+            Content
+        </a>
 
-                Content
-            </a>
+        <!-- USERS -->
+        <a href="users.php"
+           class="flex items-center gap-3 px-3 py-2 rounded-lg
+           <?php echo $current == 'users.php' ? 'bg-black text-white' : 'text-gray-600 hover:bg-gray-100'; ?>">
 
-            <!-- USERS -->
-            <a href="users.php"
-               class="flex items-center gap-3 px-3 py-2 rounded-lg
-               <?php echo $current == 'users.php' ? 'bg-black text-white' : 'text-gray-600 hover:bg-gray-100'; ?>">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m9-9a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
 
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m9-9a4 4 0 11-8 0 4 4 0 018 0z"/>
-                </svg>
+            Users
+        </a>
 
-                Users
-            </a>
+    </nav>
 
-        </nav>
+    <!-- LOGOUT -->
+    <div class="p-4 border-t">
+        <button onclick="openLogoutModal()" class="flex items-center gap-2 text-sm text-gray-500 hover:text-black">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M17 16l4-4m0 0l-4-4m4 4H7"/>
+            </svg>
+            Logout
+        </button>
+    </div>
 
-        <!-- LOGOUT -->
-        <div class="p-6 border-t">
+</aside>
 
-            <button onclick="openLogoutModal()"
-                    class="flex items-center gap-3 text-sm text-gray-500 hover:text-black">
-
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M17 16l4-4m0 0l-4-4m4 4H7"/>
-                </svg>
-
-                Logout
-            </button>
-
-        </div>
-
-    </aside>
-
-    <!-- ================= MAIN CONTENT ================= -->
-    <main class="flex-1 w-full pt-16 md:pt-0">
-
-        <!-- PAGE CONTENT GOES HERE -->
-
-    </main>
-
-</div>
+<!-- ================= MAIN ================= -->
+<main class="pt-14 md:pl-64 p-4">
+</main>
 
 <!-- ================= LOGOUT MODAL ================= -->
 <div id="logoutModal"
@@ -174,32 +161,27 @@ $current = basename($_SERVER['PHP_SELF']);
 
         <div class="flex justify-center gap-4 pt-2">
 
-            <button onclick="closeLogoutModal()"
-                    class="px-4 py-2 border rounded-full text-sm">
+            <button onclick="closeLogoutModal()" class="px-4 py-2 border rounded-full text-sm">
                 Cancel
             </button>
 
-            <a href="./logout.php"
-               class="px-4 py-2 bg-black text-white rounded-full text-sm">
+            <a href="./logout.php" class="px-4 py-2 bg-black text-white rounded-full text-sm">
                 Yes, Logout
             </a>
 
         </div>
 
     </div>
-
 </div>
 
-<!-- ================= SCRIPT ================= -->
 <script>
-
 function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
     const overlay = document.getElementById('overlay');
 
-    const isHidden = sidebar.classList.contains('-translate-x-full');
+    const hidden = sidebar.classList.contains('-translate-x-full');
 
-    if (isHidden) {
+    if (hidden) {
         sidebar.classList.remove('-translate-x-full');
         overlay.classList.remove('hidden');
         document.body.classList.add('overflow-hidden');
@@ -217,7 +199,6 @@ function openLogoutModal() {
 function closeLogoutModal() {
     document.getElementById('logoutModal').classList.add('hidden');
 }
-
 </script>
 
 </body>

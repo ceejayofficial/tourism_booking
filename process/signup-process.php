@@ -9,7 +9,7 @@ $password = $_POST['password'];
 
 // VALIDATION
 if ($name == "" || $email == "" || $password == "") {
-    header("Location: ../auth/signup.php?error=empty");
+    header("Location: ../auth/signup.php");
     exit();
 }
 
