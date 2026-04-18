@@ -4,11 +4,16 @@ requireLogin();
 
 include __DIR__ . '/../includes/db.php';
 
-// FETCH IMAGES WITH TRIP INFO
+/*
+-----------------------------------
+FETCH IMAGES THE SAME WAY AS TRIPS
+-----------------------------------
+*/
 $sql = "
 SELECT 
     ti.id,
     ti.trip_id,
+    ti.image,
     ti.image_type,
     t.title
 FROM trip_images ti
@@ -29,72 +34,75 @@ $result = $conn->query($sql);
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-body { font-family: 'Inter', sans-serif; }
+body {
+    font-family: 'Inter', sans-serif;
+    background: #fff;
+}
 </style>
 </head>
 
-<body class="bg-white">
+<body>
 
-<div class="flex min-h-screen">
+<div class="flex min-h-screen bg-white">
 
 <?php include 'components/sidebar.php'; ?>
 
-    <!-- MAIN -->
-    <main class="flex-1">
+<!-- MAIN -->
+<main class="flex-1 bg-white">
 
-        <!-- TOP BAR -->
-        <div class="flex items-center justify-between px-6 py-5 border-b">
+    <!-- TOP BAR -->
+    <div class="flex items-center justify-between px-6 py-5 border-b bg-white">
 
-            <h2 class="text-xl font-light">Media Library</h2>
+        <h2 class="text-xl font-light text-black">Media Library</h2>
 
-            <div class="text-sm text-gray-500">
-                All Trip Images (BLOB Storage)
-            </div>
-
+        <div class="text-sm text-gray-500">
+            All Trip Images (BLOB Storage)
         </div>
 
-        <!-- GRID -->
-        <div class="p-6">
+    </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <!-- GRID -->
+    <div class="p-6 bg-white">
 
-                <?php while($row = $result->fetch_assoc()): ?>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
-                <div class="border rounded-xl overflow-hidden">
+            <?php while($row = $result->fetch_assoc()): ?>
 
-                    <!-- IMAGE -->
-                    <img src="../get-image.php?id=<?php echo $row['id']; ?>"
-                         class="w-full h-40 object-cover">
+            <div class="bg-white border rounded-xl overflow-hidden shadow-sm">
 
-                    <!-- INFO -->
-                    <div class="p-3">
-
-                        <p class="text-sm font-medium text-black">
-                            <?php echo htmlspecialchars($row['title']); ?>
-                        </p>
-
-                        <p class="text-xs text-gray-500 mt-1">
-                            Image ID: <?php echo $row['id']; ?>
-                        </p>
-
-                        <!-- ACTION -->
-                        <a href="../process/delete-image.php?id=<?php echo $row['id']; ?>"
-                           onclick="return confirm('Delete this image?')"
-                           class="text-xs text-red-600 mt-2 inline-block">
-                            Delete
-                        </a>
-
+                <!-- IMAGE (DIRECT BLOB RENDER - SAME AS TRIPS) -->
+                <?php if (!empty($row['image'])): ?>
+                    <img src="data:<?= htmlspecialchars($row['image_type']); ?>;base64,<?= base64_encode($row['image']); ?>"
+                         class="w-full h-44 object-cover bg-gray-100">
+                <?php else: ?>
+                    <div class="w-full h-44 flex items-center justify-center text-gray-400 text-xs">
+                        No Image
                     </div>
+                <?php endif; ?>
+
+                <!-- INFO -->
+                <div class="p-3">
+
+                    <p class="text-sm font-medium text-black">
+                        <?= htmlspecialchars($row['title'] ?? 'Untitled Trip'); ?>
+                    </p>
+
+                    <p class="text-xs text-gray-500 mt-1">
+                        Image ID: <?= $row['id']; ?>
+                    </p>
+
 
                 </div>
 
-                <?php endwhile; ?>
-
             </div>
+
+            <?php endwhile; ?>
 
         </div>
 
-    </main>
+    </div>
+
+</main>
 
 </div>
 

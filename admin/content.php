@@ -41,7 +41,7 @@ body { font-family: 'Inter', sans-serif; }
         <form action="../process/add-content.php" method="POST"
               class="border rounded-xl p-6 mb-10 space-y-4">
 
-            <h2 class="text-lg font-light">Add New Content</h2>
+            <h2 class="text-lg font-light">New Content</h2>
 
             <!-- DROPDOWN -->
             <select name="section" required
@@ -50,9 +50,7 @@ body { font-family: 'Inter', sans-serif; }
                 <option value="">Select Section</option>
                 <option value="vision">Vision</option>
                 <option value="mission">Mission</option>
-                <option value="about">About Us</option>
-                <option value="footer">Footer</option>
-                <option value="hero">Hero Text</option>
+           
 
             </select>
 

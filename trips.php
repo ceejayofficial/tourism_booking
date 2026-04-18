@@ -5,21 +5,26 @@
 // -------------------------
 // PAGINATION SETTINGS
 // -------------------------
-$limit = 9; // trips per page
+$limit = 9;
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $page = max($page, 1);
 
 $offset = ($page - 1) * $limit;
 
 // -------------------------
-// TOTAL TRIPS
+// TOTAL TRIPS (ONLY ACTIVE)
 // -------------------------
-$totalResult = $conn->query("SELECT COUNT(*) as total FROM trips");
+$totalResult = $conn->query("
+    SELECT COUNT(*) as total 
+    FROM trips 
+    WHERE status = 'Active'
+");
+
 $totalTrips = $totalResult->fetch_assoc()['total'];
 $totalPages = ceil($totalTrips / $limit);
 
 // -------------------------
-// FETCH TRIPS (PAGINATED)
+// FETCH TRIPS (ONLY ACTIVE + PAGINATED)
 // -------------------------
 $stmt = $conn->prepare("
     SELECT 
@@ -34,6 +39,7 @@ $stmt = $conn->prepare("
             WHERE trip_id = trips.id 
             LIMIT 1
         )
+    WHERE trips.status = 'Active'
     ORDER BY trips.id DESC
     LIMIT ? OFFSET ?
 ");

@@ -11,8 +11,15 @@ $stmt->bind_param("i", $id);
 $stmt->execute();
 $trip = $stmt->get_result()->fetch_assoc();
 
+// ❌ BLOCK INVALID OR CLOSED TRIPS
 if (!$trip) {
-    die("Trip not found");
+    header("Location: trips.php");
+    exit;
+}
+
+if ($trip['status'] !== 'Active') {
+    header("Location: trips.php");
+    exit;
 }
 
 // FETCH ALL IMAGES
