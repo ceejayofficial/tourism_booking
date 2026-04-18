@@ -1,46 +1,50 @@
 <?php include 'components/cdn.php'; ?>
+<?php include 'includes/db.php'; ?>
 
 <?php
-// SAMPLE DATA (replace with DB later)
-$trips = [
-    [
-        "id" => 1,
-        "title" => "Arenal, Costa Rica",
-        "price" => 1200,
-        "duration" => "5 Days",
-        "image" => "assets/images/1.jpg",
-        "category" => "Adventure"
-    ],
-    [
-        "id" => 2,
-        "title" => "Spain Cultural Escape",
-        "price" => 1500,
-        "duration" => "7 Days",
-        "image" => "assets/images/2.jpg",
-        "category" => "Culture"
-    ],
-    [
-        "id" => 3,
-        "title" => "Jamaica Island Retreat",
-        "price" => 1100,
-        "duration" => "6 Days",
-        "image" => "assets/images/3.avif",
-        "category" => "Island"
-    ],
-    [
-        "id" => 4,
-        "title" => "Maldives Luxury Escape",
-        "price" => 2500,
-        "duration" => "5 Days",
-        "image" => "assets/images/4.jpg",
-        "category" => "Luxury"
-    ]
-];
+// -------------------------
+// PAGINATION SETTINGS
+// -------------------------
+$limit = 9; // trips per page
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$page = max($page, 1);
+
+$offset = ($page - 1) * $limit;
+
+// -------------------------
+// TOTAL TRIPS
+// -------------------------
+$totalResult = $conn->query("SELECT COUNT(*) as total FROM trips");
+$totalTrips = $totalResult->fetch_assoc()['total'];
+$totalPages = ceil($totalTrips / $limit);
+
+// -------------------------
+// FETCH TRIPS (PAGINATED)
+// -------------------------
+$stmt = $conn->prepare("
+    SELECT 
+        trips.*,
+        trip_images.image,
+        trip_images.image_type
+    FROM trips
+    LEFT JOIN trip_images 
+        ON trip_images.id = (
+            SELECT id 
+            FROM trip_images 
+            WHERE trip_id = trips.id 
+            LIMIT 1
+        )
+    ORDER BY trips.id DESC
+    LIMIT ? OFFSET ?
+");
+
+$stmt->bind_param("ii", $limit, $offset);
+$stmt->execute();
+$result = $stmt->get_result();
 ?>
 
-<!-- 🌍 HERO HEADER -->
-<section class="bg-white pt-32 pb-12 px-6">
-
+<!-- HERO -->
+<section class="bg-white pt-32 pb-12">
     <div class="max-w-6xl mx-auto text-center">
 
         <h1 class="text-4xl md:text-5xl font-light text-black">
@@ -52,86 +56,80 @@ $trips = [
         </p>
 
     </div>
-
 </section>
 
-<!-- 🏷️ CATEGORIES -->
+<!-- GRID -->
 <section class="bg-white px-6 pb-10">
-
-    <div class="max-w-6xl mx-auto flex flex-wrap justify-center gap-3">
-
-        <button class="px-4 py-2 border rounded-full text-xs uppercase hover:bg-black hover:text-white transition">
-            All
-        </button>
-
-        <button class="px-4 py-2 border rounded-full text-xs uppercase hover:bg-black hover:text-white transition">
-            Adventure
-        </button>
-
-        <button class="px-4 py-2 border rounded-full text-xs uppercase hover:bg-black hover:text-white transition">
-            Culture
-        </button>
-
-        <button class="px-4 py-2 border rounded-full text-xs uppercase hover:bg-black hover:text-white transition">
-            Island
-        </button>
-
-        <button class="px-4 py-2 border rounded-full text-xs uppercase hover:bg-black hover:text-white transition">
-            Luxury
-        </button>
-
-    </div>
-
-</section>
-
-<!-- ✈️ TRIPS GRID -->
-<section class="bg-white px-6 pb-20">
 
     <div class="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-        <?php foreach($trips as $trip): ?>
+        <?php while($trip = $result->fetch_assoc()): ?>
 
-        <!-- CARD -->
-        <a href="trip-details.php?id=<?= $trip['id']; ?>"
-           class="group block rounded-3xl overflow-hidden border">
+        <div class="rounded-3xl overflow-hidden border bg-white flex flex-col h-[520px]">
 
             <!-- IMAGE -->
-            <div class="h-80 overflow-hidden">
-                <img src="<?= $trip['image']; ?>"
-                     class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+            <div class="h-72 overflow-hidden bg-gray-100">
+
+                <?php if (!empty($trip['image'])): ?>
+                    <img src="data:<?= $trip['image_type']; ?>;base64,<?= base64_encode($trip['image']); ?>"
+                         class="w-full h-full object-cover hover:scale-110 transition duration-700">
+                <?php else: ?>
+                    <div class="w-full h-full flex items-center justify-center text-gray-400 text-xs">
+                        No Image
+                    </div>
+                <?php endif; ?>
+
             </div>
 
             <!-- CONTENT -->
-            <div class="p-5">
+            <div class="p-5 flex flex-col flex-1">
 
                 <p class="text-xs text-gray-500 uppercase">
-                    <?= $trip['category']; ?>
+                    <?= htmlspecialchars($trip['destination']); ?>
                 </p>
 
                 <h3 class="text-lg font-light text-black mt-1">
-                    <?= $trip['title']; ?>
+                    <?= htmlspecialchars($trip['title']); ?>
                 </h3>
+
+                <div class="mt-3 h-[72px] overflow-hidden">
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        <?= htmlspecialchars($trip['description']); ?>
+                    </p>
+                </div>
 
                 <div class="flex justify-between items-center mt-4">
 
                     <p class="text-sm text-gray-600">
-                        <?= $trip['duration']; ?>
+                        <?= $trip['max_people'] ? $trip['max_people'] . ' Slots' : '—'; ?>
                     </p>
 
                     <p class="text-black font-medium">
-                        $<?= $trip['price']; ?>
+                        $<?= number_format($trip['price'], 2); ?>
                     </p>
+
+                </div>
+
+                <div class="mt-auto pt-5">
+
+                    <a href="trip-details.php?id=<?= $trip['id']; ?>"
+                       class="block text-center border border-black text-black py-2 rounded-full text-xs uppercase tracking-widest hover:bg-black hover:text-white transition">
+                        View Details
+                    </a>
 
                 </div>
 
             </div>
 
-        </a>
+        </div>
 
-        <?php endforeach; ?>
+        <?php endwhile; ?>
 
     </div>
 
 </section>
+
+<!-- PAGINATION -->
+<?php include 'components/pagination.php'; ?>
 
 <?php include 'components/footer.php'; ?>

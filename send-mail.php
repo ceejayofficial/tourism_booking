@@ -1,10 +1,14 @@
-
 <?php
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use Dotenv\Dotenv;
 
-require 'vendor/autoload.php'; // Composer
+require 'vendor/autoload.php';
+
+// LOAD ENV
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -16,34 +20,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail = new PHPMailer(true);
 
     try {
-        // SMTP SETTINGS
-$mail->isSMTP();
-$mail->Host       = 'smtp.gmail.com';
-$mail->SMTPAuth   = true;
-$mail->Username   = 'ekumkofi@gmail.com';
-$mail->Password   = 'khoscrwpvrwyrjvr';
 
-$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-$mail->Port       = 587;
+        // SMTP FROM ENV
+        $mail->isSMTP();
+        $mail->Host       = $_ENV['MAIL_HOST'];
+        $mail->SMTPAuth   = true;
+        $mail->Username   = $_ENV['MAIL_USERNAME'];
+        $mail->Password   = $_ENV['MAIL_PASSWORD'];
+        $mail->Port       = $_ENV['MAIL_PORT'];
 
-$mail->SMTPOptions = [
-    'ssl' => [
-        'verify_peer' => false,
-        'verify_peer_name' => false,
-        'allow_self_signed' => true
-    ]
-];
+        $mail->SMTPSecure = $_ENV['MAIL_ENCRYPTION'] === 'tls'
+            ? PHPMailer::ENCRYPTION_STARTTLS
+            : PHPMailer::ENCRYPTION_SMTPS;
 
-        // FROM (must be your domain email)
-        $mail->setFrom('ekumkofi@gmail.com', 'Website Contact');
+        // LOCAL FIX (XAMPP)
+        $mail->SMTPOptions = [
+            'ssl' => [
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true
+            ]
+        ];
 
-        // TO (YOU - super admin)
-        $mail->addAddress('ekumkofi@gmail.com');
-
-        // Reply to user
+        // EMAIL HEADERS
+        $mail->setFrom($_ENV['MAIL_FROM'], $_ENV['MAIL_FROM_NAME']);
+        $mail->addAddress($_ENV['MAIL_USERNAME']);
         $mail->addReplyTo($email, $name);
 
-        // EMAIL CONTENT
+        // CONTENT
         $mail->isHTML(true);
         $mail->Subject = $subject ?: 'New Contact Message';
 
@@ -56,9 +60,9 @@ $mail->SMTPOptions = [
 
         $mail->send();
 
-        echo "<script>alert('Message sent successfully'); window.history.back();</script>";
+        echo "success";
 
     } catch (Exception $e) {
-        echo "Message failed: {$mail->ErrorInfo}";
+        echo "error";
     }
 }
