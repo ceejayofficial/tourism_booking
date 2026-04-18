@@ -1,3 +1,13 @@
+
+<?php
+session_start();
+
+if (isset($_SESSION['user_id'])) {
+    header("Location: admin/index.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +46,7 @@ body {
         </div>
 
         <!-- FORM -->
-        <form action="./process/login-process.php" method="POST" class="space-y-5">
+        <form action="process/login-process.php" method="POST" class="space-y-5">
 
             <input type="email" name="email" placeholder="Email Address" required
                 class="w-full border rounded-lg px-4 py-3 outline-none focus:border-black">
